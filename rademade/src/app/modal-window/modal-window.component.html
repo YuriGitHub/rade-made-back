@@ -1,0 +1,23 @@
+<div class="modalDialog" [ngClass]="{'active-modal': activeModal }">
+  <div>
+    <form (submit)="submitAction($event)" [formGroup]="editForm" >
+      <select placeholder="From time" formControlName="eventStartDate">
+        <option *ngFor="let time of timesForSelect"
+                [value]="time.toISOString()">
+          {{time.format(" hh:mm a DD MMMM / dd ")}}
+        </option>
+      </select>
+      <select placeholder="From time" formControlName="eventEndDate">
+        <option *ngFor="let time of timesForSelect"
+                [value]="time.toISOString()"
+                [selected]="time.isSame(editableEvent.eventEndDate)">{{time.format("hh:mm a DD MMMM / dd")}}</option>
+      </select>
+      <input placeholder="Название" formControlName="title">
+      <textarea placeholder="Комментарий" formControlName="comment"></textarea>
+
+      <button type="submit">Сохранить</button>
+      <button type="reset" (click)="closeAction()">Отмена</button>
+      <button type="button" *ngIf="editableEvent.id != null" (click)="deleteHandler()">Delete</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+.main {
+  height: 800px;
+  background-color: antiquewhite;
+  margin: 30px 30px 30px 100px;
+  width: 1455px;
+}
+.container {
+  border: 2px solid black;
+  height: 100%;
+  padding: 10px;
+  position: relative;
+}
+.name {
+  position: absolute;
+  background-color: white;
+  top: 0;
+  margin-left: 10px;
+  margin-top: -10px;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  height: 30px;
+}
+h2{
+  margin: 0;
+}
+button {
+  background-color: white;
+  border: 2px solid black;
+}
+button:hover{
+  cursor: pointer;
+}
+.day-block {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  height: 700px;
+}
+
+.single-day {
+  min-width: 200px;
+  margin: 15px 0px;
+  border: 2px solid black;
+  background-color: white;
+  height: 650px;
+  position: relative;
+}
+.date-in-day-block {
+  background-color: white;
+  position: absolute;
+  margin: 0;
+  top: -10px;
+  text-align: center;
+  width: 100%;
+}
+.active {
+  background-color: aqua;
+}
+.times {
+  width: 100px;
+  min-height: 27px;
+  float: right;
+  text-align: right;
+  position: relative;
+
+}
+.time-block {
+  height: 800px;
+  margin-top: 100px;
+  border: none;
+  float: left;
+}
+.event {
+  position: absolute;
+  border: 2px solid black;
+  width: 90%;
+  margin-left: 7px;
+  text-align: center;
+  background-color: white;
+  z-index: 100;
+}
+hr {
+  width: 1820px;
+  border-style: inset;
+  border-width: 1px;
+  z-index: 100;
+  border-color: red;
+  position: absolute;
+  margin-top: 0px;
+}
+.events-container {
+
+}

@@ -1,0 +1,28 @@
+<div class="times time-block">
+  <div *ngFor="let time of times" class="times"><hr/>{{time}}
+  </div>
+</div>
+<div class="main">
+  <div class="container">
+    <h3 class="name">Ежедневник</h3>
+    <div class="header header-child">
+      <button (click)="nextWeek(currentYear.add(-1,'weeks'))">Prev week</button>
+      <h2>Year {{currentYear?.format("YYYY")}}</h2>
+      <button (click)="nextWeek(currentYear.add(1,'weeks'))">Next week</button>
+    </div>
+    <div class="day-block"  >
+      <div *ngFor="let day of calendar?.days" class="single-day"
+           [ngClass]="{active: currentDate?.isSame(day.date) }" (click)="createEvent(day.date)" >
+        <h3 class="date-in-day-block" >{{day.date.format("DD MMMM / dd")}}</h3>
+        <div *ngFor="let myEvent of events" class="events-container">
+          <div *ngIf="myEvent.eventStartDate.isSame(day.date,'day')" class="event"
+               [ngStyle]="{'margin-top': getMarging(myEvent), 'height': getHeight(myEvent) }"
+               (click)="editEvent($event, myEvent)" >
+           {{myEvent.title}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal-window (newEventAction)="updateEvent($event)" (deleteEvent)="deleteHandler($event)"></app-modal-window>
